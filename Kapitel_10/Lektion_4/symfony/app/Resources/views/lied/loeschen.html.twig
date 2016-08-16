@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('lied-loeschen', {'liedId': lied.id}) }}" method="post">
+        <h1>Lied löschen</h1>
+        <h2>{{ lied.cd.name }} ({{ lied.cd.kuenstler.name }})</h2>
+
+        <p>
+            Möchten Sie Track {{ lied.track }} '{{ lied.titel }}' löschen?<br>
+            Diese Aktion kann nicht rückgängig gemacht werden.
+        </p>
+        <button type="submit" name="aktion" value="loeschen">Löschen!</button>
+        <button type="submit" name="aktion" value="abbrechen">Abbrechen</button>
+    </form>
+{% endblock %}

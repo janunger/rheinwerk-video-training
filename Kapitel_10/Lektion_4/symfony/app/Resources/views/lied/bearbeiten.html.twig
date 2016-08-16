@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('lied-bearbeiten', {'liedId': lied.id}) }}" method="post">
+        <h1>Lied bearbeiten</h1>
+        <h2>'{{ lied.cd.name }}' ({{ lied.cd.kuenstler.name }})</h2>
+
+        <label>Track
+            <input type="text" name="track" value="{{ lied.track }}"/>
+        </label>
+        <label>Titel
+            <input type="text" name="titel" value="{{ lied.titel }}"/>
+        </label>
+        <button type="submit" name="aktion" value="speichern">Speichern</button>
+        <button type="submit" name="aktion" value="abbrechen">Abbrechen</button>
+    </form>
+{% endblock %}

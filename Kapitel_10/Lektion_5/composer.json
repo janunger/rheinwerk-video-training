@@ -1,0 +1,12 @@
+{
+    "name": "janunger/htdocs",
+    "autoload": {
+        "psr-4": {
+            "MeineApp\\": "src/MeineApp/"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.5"
+    }
+}

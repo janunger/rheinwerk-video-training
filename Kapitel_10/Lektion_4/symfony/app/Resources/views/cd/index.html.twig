@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ cd.name }} ({{ cd.kuenstler.name }}, {{ cd.erscheinungsjahr }})</h1>
+
+    <form action="{{ path('lied-hinzufuegen', {"cdId": cd.id}) }}" method="post">
+        <table>
+            <tr>
+                <th>Track</th>
+                <th>Titel</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for lied in cd.lieder %}
+            <tr>
+                <td>{{ lied.track }}</td>
+                <td>{{ lied.titel }}</td>
+                <td><a href="{{ path('lied-bearbeiten', {'liedId': lied.id}) }}">Bearbeiten ...</a></td>
+                <td><a href="{{ path('lied-loeschen', {'liedId': lied.id}) }}">Löschen ...</a></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td><input type="text" name="track" placeholder="Track"/></td>
+                <td><input type="text" name="titel" placeholder="Titel"/></td>
+            </tr>
+        </table>
+        <input type="submit" value="Hinzufügen"/>
+    </form>
+
+    <p><a href="{{ path('homepage') }}">zur Übersicht</a></p>
+{% endblock %}

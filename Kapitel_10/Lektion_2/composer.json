@@ -1,0 +1,12 @@
+{
+    "name": "janunger/htdocs",
+    "autoload": {
+        "psr-4": {
+            "MeineApp\\": "src/MeineApp/"
+        }
+    },
+    "require": {
+        "setasign/fpdf": "^1.8",
+        "swiftmailer/swiftmailer": "^5.4"
+    }
+}

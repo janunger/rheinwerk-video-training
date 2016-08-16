@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>Künstler</th>
+            <th>Album</th>
+            <th>Erscheinungsjahr</th>
+        </tr>
+        {% for cd in cds %}
+            <tr>
+                <td>{{ cd.kuenstler.name }}</td>
+                <td>
+                    <a href="{{ path('cd', {'cdId': cd.id}) }}">{{ cd.name }}</a>
+                </td>
+                <td>{{ cd.erscheinungsjahr }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

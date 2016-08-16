@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Meine Webanwendung"
+AuthUserFile /Applications/MAMP/htdocs/privat/.htpasswd
+Require valid-user
