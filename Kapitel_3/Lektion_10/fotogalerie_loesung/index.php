@@ -85,7 +85,7 @@ if (count($_POST) > 0) {
 <?php foreach ($fotosGefiltert as $foto) : ?>
 <div>
     <div class="miniatur" style="float: left;">
-        <a href="fotos/<?= htmlspecialchars($foto['dateiname']); ?>">
+        <a href="foto.php?dateiname=<?= htmlspecialchars($foto['dateiname']); ?>">
             <img src="miniaturen/<?= htmlspecialchars($foto['dateiname']); ?>" alt="<?= htmlspecialchars($foto['dateiname']); ?>">
         </a>
     </div>
