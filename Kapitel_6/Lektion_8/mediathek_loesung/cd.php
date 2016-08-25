@@ -5,8 +5,12 @@ require __DIR__ . '/_application.php';
 $db = holeDatenbankverbindung();
 
 if (count($_POST) > 0) {
-
-    // TODO: Lied in die Datenbank speichern
+    $insertStatement = $db->prepare("INSERT INTO lieder (cd_id, track, titel) VALUES (:cd_id, :track, :titel)");
+    $insertStatement->execute([
+        'cd_id' => $_GET['id'],
+        'track' => $_POST['track'],
+        'titel' => $_POST['titel']
+    ]);
 
     header('Location: cd.php?id=' . htmlspecialchars($_GET['id']));
     exit;
@@ -25,7 +29,7 @@ $cdStatement = $db->prepare("
 $cdStatement->execute(['cd_id' => $_GET['id']]);
 $cd = $cdStatement->fetch(PDO::FETCH_ASSOC);
 
-$liederStatement = $db->prepare("SELECT * FROM lieder where cd_id = :cd_id");
+$liederStatement = $db->prepare("SELECT * FROM lieder where cd_id = :cd_id ORDER BY track ASC");
 $liederStatement->execute(['cd_id' => $_GET['id']]);
 $lieder = $liederStatement->fetchAll(PDO::FETCH_ASSOC);
 
